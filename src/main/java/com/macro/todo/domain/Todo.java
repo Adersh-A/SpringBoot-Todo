@@ -38,13 +38,14 @@ public class Todo {
         this.crt_date = crt_date;
     }
 
-    public boolean getCompleted() {
+    public boolean isCompleted() {
         return completed;
     }
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
+
 
     @Override
     public String toString() {
@@ -55,4 +56,6 @@ public class Todo {
                 ", status='" + completed + '\'' +
                 '}';
     }
+
+
 }

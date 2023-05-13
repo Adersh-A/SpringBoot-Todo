@@ -18,7 +18,11 @@ public class TodoService {
         return todoRepo.save(todo);
     }
 
-    public List<Todo> getAllTasks(){
+    public List<Todo> findAllTasks(){
         return todoRepo.findAll();
+    }
+
+    public List<Todo> findInCompletedTasks(){
+        return todoRepo.findByCompletedFalse();
     }
 }

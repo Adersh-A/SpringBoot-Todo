@@ -18,8 +18,13 @@ public class TodoController {
         System.out.println(todo.toString());
         todoService.addTask(todo);
     }
-    @GetMapping("/getTasks")
+    @GetMapping("/")
     public List<Todo> getTasks(){
-        return todoService.getAllTasks();
+        return todoService.findAllTasks();
+    }
+
+    @GetMapping("/incomplete")
+    public List<Todo> getIncompleteTasks(){
+        return todoService.findInCompletedTasks();
     }
 }
