@@ -1,8 +1,5 @@
 package com.macro.todo.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.sql.Date;
@@ -15,7 +12,7 @@ public class Todo {
     private int id;
     private String task;
     private Date crt_date;
-    private String status;
+    private boolean completed;
 
     public int getId() {
         return id;
@@ -41,12 +38,12 @@ public class Todo {
         this.crt_date = crt_date;
     }
 
-    public String getStatus() {
-        return status;
+    public boolean getCompleted() {
+        return completed;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     @Override
@@ -55,7 +52,7 @@ public class Todo {
                 "id=" + id +
                 ", task='" + task + '\'' +
                 ", crt_date=" + crt_date +
-                ", status='" + status + '\'' +
+                ", status='" + completed + '\'' +
                 '}';
     }
 }
