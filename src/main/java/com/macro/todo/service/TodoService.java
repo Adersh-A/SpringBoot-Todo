@@ -5,6 +5,7 @@ import com.macro.todo.repository.TodoRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TodoService {
@@ -16,6 +17,10 @@ public class TodoService {
 
     public Todo addTask(Todo todo){
         return todoRepo.save(todo);
+    }
+
+    public Optional<Todo> findById(int id){
+        return todoRepo.findById(id);
     }
 
     public List<Todo> findAllTasks(){

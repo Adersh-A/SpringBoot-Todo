@@ -1,10 +1,12 @@
 package com.macro.todo.controller;
 
 import com.macro.todo.domain.Todo;
+import com.macro.todo.exception.TodoNotFoundException;
 import com.macro.todo.service.TodoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 @RestController()
 public class TodoController {
@@ -26,5 +28,9 @@ public class TodoController {
     @GetMapping("/incomplete")
     public List<Todo> getIncompleteTasks(){
         return todoService.findInCompletedTasks();
+    }
+    @GetMapping("/todos/{id}")
+    public Todo getTaskbyId(@PathVariable int id){
+        return todoService.findById(id).orElseThrow(() -> new TodoNotFoundException("id: "+id));
     }
 }
