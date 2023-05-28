@@ -30,7 +30,7 @@ public class TodoController {
         return todoService.findInCompletedTasks();
     }
     @GetMapping("/todos/{id}")
-    public Todo getTaskbyId(@PathVariable int id){
+    public Todo getTaskById(@PathVariable int id){
         return todoService.findById(id).orElseThrow(() -> new TodoNotFoundException("id: "+id));
     }
 }
